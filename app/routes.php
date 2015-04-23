@@ -11,7 +11,44 @@
 |
 */
 
+Route::pattern('id', '[0-9]+');
+
 Route::get('/', function() {
 
-    return View::make('hello');
+    return Redirect::to('api/pemilu');
+});
+
+Route::group(array('prefix' => 'api'), function() {
+
+	// Pemilu
+	Route::group(array('prefix' => 'pemilu'), function() {
+
+    	Route::get('/', array('uses' => 'PemiluController@getAll'));
+    	Route::get('/{id?}', array('uses' => 'PemiluController@getOne'));
+	});
+
+	// Formulir
+	Route::group(array('prefix' => 'formulir'), function() {
+
+    	Route::get('/', array('uses' => 'FormulirController@getAll'));
+    	Route::get('/{id?}', array('uses' => 'FormulirController@getOne'));
+	});
+
+	// Provinsi
+	Route::group(array('prefix' => 'provinces'), function() {
+
+	    Route::get('/', array('uses' => 'ProvinceController@getAll'));
+	});
+
+	// Voices
+	Route::group(array('prefix' => 'voices'), function() {
+
+	    Route::get('/', array('uses' => 'VoiceController@getAll'));
+	});
+
+});
+
+App::missing(function($exception) {
+
+    return XApi::response(array('error'=>400, 'results'=>null), 400);
 });
