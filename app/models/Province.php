@@ -5,18 +5,20 @@ class Province extends \Eloquent{
     protected $hidden = array('created_at', 'updated_at');
     protected $table = 'provinces';
 
-    public function wilayahes()
+    public function wilayah()
     {
         return $this->hasMany('Wilayah');
     }
 
-    public function allProvincesPaged($limit, $offset, $params=array())
+    public function allProvincePaged($limit, $offset)
     {
-        return 2;
+        return Province::limit($limit)->offset($offset)->get()->toArray();
     }
 
-    public function OneProvince($anggaran_id)
+    public function OneProvince($province_id)
     {
-        return 1;
+        $province = Province::find($province_id);
+
+        return (!empty($province)) ? $province->with('wilayah')->first()->toArray() : "Propinsi tidak ditemukan.";
     }
 }
