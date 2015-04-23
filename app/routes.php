@@ -35,13 +35,14 @@ Route::group(array('prefix' => 'api'), function() {
 	});
 
 	// Provinsi
-	Route::group(array('prefix' => 'provinces'), function() {
+	Route::group(array('prefix' => 'province'), function() {
 
 	    Route::get('/', array('uses' => 'ProvinceController@getAll'));
+    	Route::get('/{id?}', array('uses' => 'ProvinceController@getOne'));
 	});
 
 	// Voices
-	Route::group(array('prefix' => 'voices'), function() {
+	Route::group(array('prefix' => 'voice'), function() {
 
 	    Route::get('/', array('uses' => 'VoiceController@getAll'));
 	});

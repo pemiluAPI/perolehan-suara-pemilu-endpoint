@@ -10,13 +10,14 @@ class Pemilu extends \Eloquent{
         return $this->hasMany('Voice', 'pemilu_id');
     }
 
-    public function allPemilusPaged($limit, $offset, $params=array())
+    public function allPemiluPaged($limit, $offset, $params=array())
     {
         return Pemilu::limit($limit)->offset($offset)->get()->toArray();
     }
 
     public function OnePemilu($pemilu_id)
     {
-        return 1;
+        $pemilu = Pemilu::find($pemilu_id);
+        return (!empty($pemilu)) ? $pemilu->first()->toArray() :  'data tidak ditemukan';
     }
 }

@@ -2,7 +2,7 @@
 
 class Wilayah extends \Eloquent{
     protected $fillable = array('id', 'province_id', 'name','full_name', 'english_name');
-    protected $hidden = array('created_at', 'updated_at');
+    protected $hidden = array('created_at', 'updated_at', 'full_name');
     protected $table = 'wilayahes';
 
     public function province()
@@ -10,7 +10,7 @@ class Wilayah extends \Eloquent{
         $this->belongsTo('Province');
     }
 
-    public function allWilayahesPaged($limit, $offset, $params=array())
+    public function allWilayahPaged($limit, $offset, $params=array())
     {
         return 2;
     }

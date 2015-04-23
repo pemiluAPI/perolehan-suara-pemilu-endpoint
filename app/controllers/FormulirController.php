@@ -15,7 +15,7 @@ class FormulirController extends BaseController {
         $offset = Input::get('offset', 0);
         $params = array();
 
-        return XApi::parser($this->formulir->allFormulirsPaged($limit, $offset, $params), false);
+        return XApi::parser($this->formulir->allFormulirPaged($limit, $offset, $params), false);
     }
 
     public function getOne($id)

@@ -10,7 +10,7 @@ class Formulir extends \Eloquent{
         return $this->hasMany('FormulirCategory', 'formulir_id');
     }
 
-    public function allFormulirsPaged($limit, $offset, $params=array())
+    public function allFormulirPaged($limit, $offset, $params=array())
     {
         return Formulir::limit($limit)->offset($offset)->get()->toArray();
     }

@@ -15,7 +15,7 @@ class FormulirCategory extends \Eloquent{
         return $this->hasMany('Voice');
     }
 
-    public function allCategoriesPaged($limit, $offset, $params=array())
+    public function allCategoriePaged($limit, $offset, $params=array())
     {
         return 2;
     }

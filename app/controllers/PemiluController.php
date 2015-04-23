@@ -15,7 +15,7 @@ class PemiluController extends BaseController {
         $offset = Input::get('offset', 0);
         $params = array();
 
-        return XApi::parser($this->pemilu->allPemilusPaged($limit, $offset, $params), false);
+        return XApi::parser($this->pemilu->allPemiluPaged($limit, $offset, $params), false);
     }
 
     public function getOne($id)

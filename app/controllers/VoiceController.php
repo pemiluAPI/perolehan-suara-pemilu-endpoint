@@ -15,12 +15,12 @@ class VoiceController extends BaseController {
         $offset = Input::get('offset', 0);
         $params = array(
             'formulir' => Input::get('formulir', 0),
-            'provinsi' => Input::get('provinsi', 0),
+            'propinsi' => Input::get('propinsi', 0),
             'wilayah' => Input::get('wilayah', 0),
             'pemilu' => Input::get('pemilu', 0),
             );
 
-        return XApi::parser($this->voice->allVoicesPaged($limit, $offset, $params), false);
+        return XApi::parser($this->voice->allVoicePaged($limit, $offset, $params), false);
     }
 
     public function getOne($id)

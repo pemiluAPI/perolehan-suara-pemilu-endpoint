@@ -13,11 +13,11 @@ class XApi
     {
         return Response::json(
             array(
-                'error' =>   $data['error'],
+                'error' =>   (int) $data['error'],
                 'message' => empty($data['message']) ? null : $data['message'],
                 'results' => empty($data['results']) ? null : $data['results']
             ),
-            $http_code
+            (int) $http_code
         );
     }
 
