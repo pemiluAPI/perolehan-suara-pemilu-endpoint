@@ -6,7 +6,7 @@
     RewriteEngine On
 
     # We're in sub directory
-    RewriteBase /perolehan_suara_presiden
+    RewriteBase /perolehan_suara_pemilu
 
     # Redirect Trailing Slashes...
     # RewriteRule ^(.*)/$ /$1 [L,R=301]
